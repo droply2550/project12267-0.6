@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus — Card Shop</title>
+  <meta name="description" content="ร้านขายการ์ดแวนการ์ด D Format คุณภาพสูง ราคาดี จัดส่งทั่วประเทศ">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐉</text></svg>">
+</head>
+<body>
+
+<!-- ========== NAVBAR ========== -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo">
+        <div class="logo-icon">
+    <img src="images/logo.png" alt="Logo"></div>
+    <div><span class="logo-text"> NEXUS</span><span class="logo-sub">Card Shop</span></div>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">🏠 หน้าแรก</a></li>
+    <li><a href="products.html">🎴 สินค้า</a></li>
+    <li><a href="contact.html">📨 ติดต่อ</a></li>
+    <li><a href="about.html">👥 สมาชิก</a></li>
+  </ul>
+
+  <div class="nav-actions">
+    <button class="search-toggle" title="ค้นหา (Ctrl+K)">🔍</button>
+    <a href="cart.html" class="cart-btn">
+      🛒
+      <span class="cart-count" style="display:none">0</span>
+    </a>
+    <button class="login-btn">เข้าสู่ระบบ</button>
+    <div class="user-menu-btn" style="display:none" onclick="logout()">
+      <div class="user-avatar">DP</div>
+      <span class="user-name">Player</span>
+    </div>
+    <button class="hamburger" aria-label="menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav">
+  <a href="index.html">🏠 หน้าแรก</a>
+  <a href="products.html">🎴 สินค้าทั้งหมด</a>
+  <a href="cart.html">🛒 ตะกร้าสินค้า</a>
+  <a href="contact.html">📨 ติดต่อเรา</a>
+  <a href="about.html">👥 สมาชิกกลุ่ม</a>
+</div>
+
+<!-- Search Overlay -->
+<div class="search-overlay" id="search-overlay">
+  <div class="search-box">
+    <div class="search-input-wrap">
+      <input type="text" class="search-input" id="search-input" placeholder="ค้นหาการ์ด ชื่อ คลาน ความหายาก...">
+      <button class="search-clear" id="search-clear">✕</button>
+    </div>
+    <div class="search-hint">กด ESC เพื่อปิด</div>
+    <div class="search-results" id="search-results" style="display:none"></div>
+  </div>
+</div>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        D FORMAT · เมษายน  · 2023
+      </div>
+      <h1 class="hero-title">
+        ยกระดับ<br>
+        <span class="line2">deck Vanguard</span><br>
+        ของคุณ
+      </h1>
+      <p class="hero-desc">
+        แหล่งรวมการ์ดแวนการ์ด D Format แยกใบระดับการ์ด RRR , RR , R , SP และอื่น ๆ ราคาดี จัดส่งไว
+      </p>
+      <div class="hero-cta">
+        <a href="products.html" class="btn-primary">🎴 เลือกซื้อการ์ด</a>
+        <a href="contact.html" class="btn-secondary">📋 สอบถามสินค้า</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-number" id="count-cards">9</div>
+          <div class="stat-label">Single Cards</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">3</div>
+          <div class="stat-label">D-BT Sets</div>
+        </div>
+        <div class="stat">
+          
+         
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="glow-ring"></div>
+      <div class="hero-cards-showcase">
+        <div class="showcase-card">
+          <div class="card-placeholder" style="background:linear-gradient(135deg,#ef444418,#ef444406)">
+            <img class="card-art" src="images/lianorn06.png" alt="lianorn">
+            
+          </div>
+        </div>
+        <div class="showcase-card">
+          <div class="card-placeholder" style="background:linear-gradient(135deg,#c9a22718,#c9a22706)">
+            <img class="card-art" src="images/youthberk.png" alt="youthberk">
+          </div>
+        </div>
+        <div class="showcase-card">
+          <div class="card-placeholder" style="background:linear-gradient(135deg,#3b82f618,#3b82f606)">
+            <img class="card-art" src="images/drajeweled07.png" alt="drajeweled">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== MARQUEE ========== -->
+<div class="marquee-section">
+  <div class="marquee-track" id="marquee-track">
+    <div class="marquee-item"><span class="dot"></span> D-BT09 Dragontree Invasion มาแล้ว!</div>
+    <div class="marquee-item"><span class="dot"></span> ส่งฟรีเมื่อสั่งซื้อครบ 250 บาท</div>
+    <div class="marquee-item"><span class="dot"></span> RRR RR SP พร้อมจำหน่าย </div>
+    <div class="marquee-item"><span class="dot"></span> อัพเดท Booster Box ตลอด!</div>
+    
+ 
+    <!-- Duplicate for seamless loop -->
+    <div class="marquee-item"><span class="dot"></span> D-BT09 Dragontree Invasion มาแล้ว!</div>
+    <div class="marquee-item"><span class="dot"></span> ส่งฟรีเมื่อสั่งซื้อครบ 250 บาท</div>
+    <div class="marquee-item"><span class="dot"></span> RRR RR SP พร้อมจำหน่าย จำนวนจำกัด</div>
+    <div class="marquee-item"><span class="dot"></span> อัพเดท Booster Box ตลอด!</div>
+    
+   
+  </div>
+</div>
+
+<!-- ========== CATEGORIES ========== -->
+<section class="categories-section">
+  <div class="container">
+    <div class="section-header animate-up">
+      <span class="section-label">เลือกตามหมวดหมู่</span>
+      <h2 class="section-title">ค้นหาการ์ดของคุณ</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="cat-grid animate-up">
+      <a href="products.html?rarity=RRR" class="cat-card">
+
+        <img class="cat-icon" src="images/Icon_DEOD.webp">
+        <div class="cat-name">Dragon Empire</div>
+        <div class="cat-count">4 รายการ</div>
+      </a>
+      <a href="products.html?rarity=RR" class="cat-card">
+        <img class="cat-icon" src="images/Icon_KS.webp">
+        <div class="cat-name">Keter Sanctuary</div>
+        <div class="cat-count">3 รายการ</div>
+      </a>
+      <a href="products.html?rarity=SP" class="cat-card">
+        <img class="cat-icon" src="images/Icon_DS.webp">
+        <div class="cat-name">Dark States</div>
+        <div class="cat-count">3 รายการ</div>
+      </a>
+      <a href="products.html?clan=royal" class="cat-card">
+        <img class="cat-icon" src="images/Icon_Stoic.webp">
+        <div class="cat-name">Stoicheia</div>
+        <div class="cat-count">3 รายการ</div>
+      </a>
+      <a href="products.html?clan=narukami" class="cat-card">
+        <img class="cat-icon" src="images/Icon_BG.webp">
+        <div class="cat-name">Brandt Gate</div>
+        <div class="cat-count">3 รายการ</div>
+      </a>
+      <a href="products.html?clan=kagero" class="cat-card">
+        <img class="cat-icon" src="images/Icon_LM.webp">
+        <div class="cat-name">Lyrical Monasterio</div>
+        <div class="cat-count">1 รายการ</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FEATURED PRODUCTS ========== -->
+<section class="featured-section">
+  <div class="container">
+    <div class="section-header animate-up" style="display:flex;align-items:flex-end;justify-content:space-between">
+      <div>
+        <span class="section-label">การ์ดแนะนำ</span>
+        <h2 class="section-title">สินค้ายอดนิยม</h2>
+        <div class="divider"></div>
+      </div>
+      <a href="products.html" class="btn-secondary" style="margin-bottom:.5rem">ดูทั้งหมด →</a>
+    </div>
+    <div class="featured-grid animate-up" id="featured-grid">
+      <!-- Rendered by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ========== NEWSLETTER ========== -->
+<section class="newsletter-section">
+  <div class="container">
+    <div class="newsletter-card animate-up">
+      <span class="section-label">อัปเดตก่อนใคร</span>
+      <h2 class="section-title">รับข่าวสาร</h2>
+      <p style="color:var(--text-secondary);margin-top:.75rem;font-size:.95rem">
+        สมัครรับอีเมลเพื่อรู้ก่อนเมื่อมีสินค้าใหม่ โปรโมชั่น และกิจกรรม Tournament
+      </p>
+      <form class="newsletter-form" onsubmit="event.preventDefault(); showToast('สมัครสำเร็จ! ขอบคุณ 🎉')">
+        <input type="email" class="newsletter-input" placeholder="กรอกอีเมลของคุณ" required>
+        <button type="submit" class="btn-primary">ยืนยัน</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+        <div class="logo-icon">
+    <img src="images/logo.png" alt="Logo"></div>
+    <div><span class="logo-text"> NEXUS</span><span class="logo-sub">Card Shop</span></div>
+  </a>
+        <p class="footer-desc">
+          ร้านขายการ์ดแวนการ์ด D Format เฉพาะทาง คัดเฉพาะของแท้ 100% ราคายุติธรรม บริการดี จัดส่งไว
+        </p>
+        <div class="footer-social">
+          
+          
+          <button class="social-btn" onclick="location.href='https://discord.gg/gxv4yc8U'" title="Discord">📘</button>
+          
+          <button class="social-btn" onclick="location.href='https://www.instagram.com/it__spu/'" title="Instagram">📸</button>
+          
+          <button class="social-btn" onclick="location.href=''" title="Line">💬</button>
+          
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>เมนูหลัก</h4>
+        <ul>
+          <li><a href="index.html">หน้าแรก</a></li>
+          <li><a href="products.html">สินค้าทั้งหมด</a></li>
+          <li><a href="cart.html">ตะกร้าสินค้า</a></li>
+          <li><a href="contact.html">ติดต่อเรา</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>ความหายาก</h4>
+        <ul>
+          <li><a href="products.html">Card (ระดับ SIR)</a></li>
+          <li><a href="products.html">Card (ระดับ FFR)</a></li>
+          <li><a href="products.html">Card (ระดับ RRR)</a></li>
+          <li><a href="products.html">Card (ระดับ SP)</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>บริการ</h4>
+        <ul>
+          <li><a href="#">นโยบายการคืนสินค้า</a></li>
+          <li><a href="#">การชำระเงิน</a></li>
+          <li><a href="#">ติดตามพัสดุ</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Nexus © 2026 SPU - SIT . All rights reserved.</span>
+      <span>Created by Nexus Grorp - ict 12267</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Toast Container -->
+<div id="toast-container"></div>
+
+<!-- Login Modal -->
+<div class="modal-overlay" id="login-modal">
+  <div class="modal">
+    <button class="modal-close" id="modal-close">✕</button>
+    <div class="logo-icon" style="margin:0 auto .75rem; width:48px; height:48px; display: flex; align-items: center; justify-content: center;">
+    <img src="images/logo.png" alt="Logo" style="width: 100%; height: 100%; object-fit: contain;">
+</div>
+    <h2 class="modal-title">ยินดีต้อนรับ</h2>
+    <p class="modal-sub">เข้าสู่ระบบเพื่อรับสิทธิพิเศษและติดตามคำสั่งซื้อ</p>
+
+    <div class="tab-switch">
+      <button class="tab-btn active" data-tab="login">เข้าสู่ระบบ</button>
+      <button class="tab-btn" data-tab="register">สมัครสมาชิก</button>
+    </div>
+
+    <!-- Login Form -->
+    <form id="login-form" > 
+      <div class="form-group">
+        <label class="form-label">อีเมล</label>
+        <input name="email" type="email" class="form-input" placeholder="your@email.com" >
+      </div>
+      <div class="form-group">
+        <label class="form-label">รหัสผ่าน</label>
+        <div class="form-input-wrap">
+          <input name="password" type="password" class="form-input" placeholder="รหัสผ่าน" >
+          <button type="button" class="toggle-pw">👁</button>
+        </div>
+      </div>
+      <label class="form-check">
+      <input type="checkbox" > จดจำการเข้าสู่ระบบ
+      </label>
+      <button type="submit" class="btn-primary btn-full">เข้าสู่ระบบ</button>
+      <div class="divider-text">หรือ</div>
+      <div class="social-logins">
+        <button type="button" class="social-login-btn">📘 Facebook</button>
+        <button type="button" class="social-login-btn">🔵 Google</button>
+      </div>
+      <p style="text-align:center;margin-top:1rem;font-size:.78rem;color:var(--text-muted)">
+        อีเมล กับ รหัสทดลอง : <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="690d0c0406291f08070e1c081b0d471d01">[email&#160;protected]</a> / demo1234
+      </p>
+    </form>
+
+    <!-- Register Form -->
+    <form id="register-form" class="hidden"  >
+      <div class="form-group">
+        <label class="form-label">ชื่อ-นามสกุล</label>
+        <input name="name" type="text" class="form-input" placeholder="ชื่อ นามสกุล">
+      </div>
+      <div class="form-group">
+        <label class="form-label">อีเมล</label>
+        <input name="email" type="email" class="form-input" placeholder="your@email.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label">รหัสผ่าน</label>
+        <div class="form-input-wrap">
+          <input name="password" type="password" class="form-input" placeholder="อย่างน้อย 6 ตัวอักษร">
+          <button type="button" class="toggle-pw">👁</button>
+        </div>
+      </div>
+      <label class="form-check">
+        <input type="checkbox" required> ยอมรับเงื่อนไขการใช้บริการ
+      </label>
+      <button type="submit" class="btn-primary btn-full">สมัครสมาชิกฟรี</button>
+      <div class="divider-text">หรือ</div>
+      <div class="social-logins">
+         <button type="button" class="social-login-btn">📘 Facebook</button>
+        <button type="button" class="social-login-btn">🔵 Google</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

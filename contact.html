@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ติดต่อเรา —  Nexus</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐉</text></svg>">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo">
+        <div class="logo-icon">
+    <img src="images/logo.png" alt="Logo"></div>
+    <div><span class="logo-text"> NEXUS</span><span class="logo-sub">Card Shop</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">🏠 หน้าแรก</a></li>
+    <li><a href="products.html">🎴 สินค้า</a></li>
+    <li><a href="contact.html" class="active">📨 ติดต่อ</a></li>
+    <li><a href="about.html">👥 สมาชิก</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="search-toggle">🔍</button>
+    <a href="cart.html" class="cart-btn">🛒<span class="cart-count" style="display:none">0</span></a>
+    <button class="login-btn">เข้าสู่ระบบ</button>
+    <div class="user-menu-btn" style="display:none" onclick="logout()">
+      <div class="user-avatar">DP</div>
+      <span class="user-name">Player</span>
+    </div>
+    <button class="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-nav">
+  <a href="index.html">🏠 หน้าแรก</a>
+  <a href="products.html">🎴 สินค้าทั้งหมด</a>
+  <a href="cart.html">🛒 ตะกร้าสินค้า</a>
+  <a href="contact.html">📨 ติดต่อเรา</a>
+  <a href="about.html">👥 สมาชิกกลุ่ม</a>
+</div>
+<div class="search-overlay" id="search-overlay">
+  <div class="search-box">
+    <div class="search-input-wrap">
+      <input type="text" class="search-input" id="search-input" placeholder="ค้นหาการ์ด...">
+      <button class="search-clear" id="search-clear">✕</button>
+    </div>
+    <div class="search-hint">กด ESC เพื่อปิด</div>
+    <div class="search-results" id="search-results" style="display:none"></div>
+  </div>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">หน้าแรก</a>
+      <span class="sep">›</span>
+      <span class="current">ติดต่อเรา</span>
+    </div>
+    <span class="section-label">CONTACT US</span>
+    <h1 class="section-title">ติดต่อเรา</h1>
+    <p style="color:var(--text-secondary);margin-top:.75rem">มีคำถามหรือต้องการสอบถามการ์ด? เราพร้อมช่วยเสมอ</p>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-page">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- Contact Info -->
+      <div class="contact-info animate-up">
+        <div class="section-header">
+          <span class="section-label">ช่องทางติดต่อ</span>
+          <h2 class="section-title">พูดคุยกับเรา</h2>
+          <div class="divider"></div>
+          <p class="section-desc">เราตอบกลับทุกวัน ผ่านช่องทางที่คุณสะดวก ไม่ว่าจะเป็นการสอบถามสินค้า ราคา หรือการสั่งซื้อ</p>
+        </div>
+
+        <div class="info-cards">
+          <div class="info-card">
+            <div class="info-card-icon">💬</div>
+            <div>
+              <div class="info-card-title">LINE Official</div>
+              <div class="info-card-text">@Nexusshop <br>ตอบรับทุกวัน 10:00 - 22:00 น.</div>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon">📸</div>
+            <div>
+              <div class="info-card-title">Instagram</div>
+              <div class="info-card-text">Nexusshop <br>DM ได้ตลอด 24 ชม.</div>
+              
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon">📘</div>
+            <div>
+              <div class="info-card-title">Discord</div>
+              <div class="info-card-text"> Nexusshopdeep<br>DM ได้ตลอด 24 ชม.</div>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon">📧</div>
+            <div>
+              <div class="info-card-title">อีเมล</div>
+              <div class="info-card-text"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7c321904090f0f14130c3c1b111d1510521f1311">[email&#160;protected]</a> <br>ตอบกลับภายใน 24 ชม.</div>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon">📍</div>
+            <div>
+              <div class="info-card-title">ที่ตั้ง</div>
+              <div class="info-card-text">กรุงเทพมหานคร<br>จัดส่งทั่วประเทศ</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hours -->
+        <div style="margin-top:1.5rem;padding:1.25rem;background:var(--bg-card);border:1px solid var(--border-card);border-radius:var(--radius-md)">
+          <div style="font-weight:700;margin-bottom:.75rem;font-size:.875rem">⏰ เวลาทำการ</div>
+          <div style="display:flex;flex-direction:column;gap:.4rem;font-size:.82rem;color:var(--text-muted)">
+            <div style="display:flex;justify-content:space-between"><span>จันทร์ - พฤหัสบดี</span><span style="color:var(--text-primary)">10:00 - 22:00</span></div>
+            <div style="display:flex;justify-content:space-between"><span>เสาร์</span><span style="color:var(--text-primary)">09:00 - 21:00</span></div>
+            <div style="display:flex;justify-content:space-between"><span> ศุกร์ , อาทิตย์ - วันหยุดนักขัตฤกษ์</span><span style="color:var(--accent-gold)">ปิดทำการ</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="animate-up">
+        <div class="contact-form-card">
+          <h3 class="contact-form-title">ส่งข้อความหาเรา</h3>
+          <p class="contact-form-desc">กรอกแบบฟอร์มด้านล่าง เราจะติดต่อกลับภายใน 24 ชั่วโมง</p>
+
+          <form id="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">ชื่อ *</label>
+                <input type="text" class="form-input" placeholder="ชื่อของคุณ" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">นามสกุล</label>
+                <input type="text" class="form-input" placeholder="นามสกุล">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">อีเมล *</label>
+              <input type="email" class="form-input" placeholder="your@email.com" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">LINE ID / เบอร์โทร</label>
+              <input type="text" class="form-input" placeholder="สำหรับการตอบกลับที่รวดเร็ว">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">หัวข้อ *</label>
+              <select class="form-input" required style="cursor:pointer;color:var(--text-secondary)">
+                <option value="" disabled selected>เลือกหัวข้อ</option>
+                <option>สอบถามสินค้า</option>
+                <option>ราคาและการสั่งซื้อ</option>
+                <option>การจัดส่ง</option>
+                <option>การคืนสินค้า</option>
+                <option>Tournament / กิจกรรม</option>
+                <option>อื่นๆ</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">ข้อความ *</label>
+              <textarea class="form-textarea" placeholder="รายละเอียดที่ต้องการสอบถาม เช่น ชื่อการ์ด จำนวน หรือข้อสงสัยต่างๆ..." required></textarea>
+            </div>
+
+            <label class="form-check">
+              <input type="checkbox"> รับข่าวสารและโปรโมชั่นทางอีเมล
+            </label>
+
+            <button type="submit" class="btn-primary btn-full" style="margin-top:.5rem">
+              📨 ส่งข้อความ
+            </button>
+          </form>
+        </div>
+
+        <!-- FAQ -->
+        <div style="margin-top:2rem">
+          <h3 style="font-family:var(--font-display);font-size:1.1rem;margin-bottom:1rem">❓ คำถามที่พบบ่อย</h3>
+          <div style="display:flex;flex-direction:column;gap:.75rem">
+            <details style="background:var(--bg-card);border:1px solid var(--border-card);border-radius:var(--radius-md);padding:1rem;cursor:pointer">
+              <summary style="font-weight:600;font-size:.875rem;list-style:none;display:flex;justify-content:space-between">
+                การ์ดที่ขายเป็นของแท้หรือไม่?
+                <span>›</span>
+              </summary>
+              <p style="margin-top:.75rem;font-size:.82rem;color:var(--text-muted);line-height:1.7">ของแท้ 100% ทุกชิ้น จัดส่งพร้อม Sleeve และ Toploader ป้องกันการ์ดอย่างดี</p>
+            </details>
+            <details style="background:var(--bg-card);border:1px solid var(--border-card);border-radius:var(--radius-md);padding:1rem;cursor:pointer">
+              <summary style="font-weight:600;font-size:.875rem;list-style:none;display:flex;justify-content:space-between">
+                ค่าจัดส่งเท่าไหร่?
+                <span>›</span>
+              </summary>
+              <p style="margin-top:.75rem;font-size:.82rem;color:var(--text-muted);line-height:1.7">ค่าจัดส่ง 50 บาท ฟรีค่าจัดส่งเมื่อสั่งซื้อครบ 250 บาทขึ้นไป</p>
+            </details>
+            <details style="background:var(--bg-card);border:1px solid var(--border-card);border-radius:var(--radius-md);padding:1rem;cursor:pointer">
+              <summary style="font-weight:600;font-size:.875rem;list-style:none;display:flex;justify-content:space-between">
+                รับ Trade หรือรับซื้อการ์ดไหม?
+                <span>›</span>
+              </summary>
+              <p style="margin-top:.75rem;font-size:.82rem;color:var(--text-muted);line-height:1.7">รับซื้อและ Trade การ์ด D Format สภาพ NM/LP ติดต่อผ่าน LINE เพื่อประเมินราคา</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+        <div class="logo-icon">
+    <img src="images/logo.png" alt="Logo"></div>
+    <div><span class="logo-text"> NEXUS</span><span class="logo-sub">Card Shop</span></div>
+  </a>
+        <p class="footer-desc">ร้านขายการ์ดแวนการ์ด D Format เฉพาะทาง ของแท้ 100%</p>
+        <div class="footer-social">
+          <button class="social-btn" onclick="location.href='https://discord.gg/gxv4yc8U'" title="Discord">📘</button>
+          
+          <button class="social-btn" onclick="location.href='https://www.instagram.com/it__spu/'" title="Instagram">📸</button>
+          <button class="social-btn" onclick="location.href=''">💬</button>
+
+        </div>
+      </div>
+      <div class="footer-col"><h4>เมนูหลัก</h4><ul>
+        <li><a href="index.html">หน้าแรก</a></li>
+        <li><a href="products.html">สินค้าทั้งหมด</a></li>
+        <li><a href="cart.html">ตะกร้าสินค้า</a></li>
+        <li><a href="contact.html">ติดต่อเรา</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>ช่องทางติดต่อ</h4><ul>
+        <li><a href="#">LINE : @Nexusshop (ไม่จริง) </a></li>
+        <li><a href="https://www.instagram.com/it__spu/">IG : Nexusshop (ไม่จริง)</a></li>
+        <li><a href="#"></a></li>
+      </ul></div>
+      <div class="footer-col"><h4>บริการ</h4><ul>
+        <li><a href="#">นโยบายคืนสินค้า</a></li>
+        <li><a href="#">ติดตามพัสดุ</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>Nexus © 2026 SPU - SIT . All rights reserved.</span>
+      <span>Created by Nexus Grorp - ict 12267</span>
+    </div>
+  </div>
+</footer>
+
+<div id="toast-container"></div>
+
+<!-- Login Modal -->
+<div class="modal-overlay" id="login-modal">
+  <div class="modal">
+    <button class="modal-close" id="modal-close">✕</button>
+    <div class="logo-icon" style="margin:0 auto .75rem; width:48px; height:48px; display: flex; align-items: center; justify-content: center;">
+    <img src="images/logo.png" alt="Logo" style="width: 100%; height: 100%; object-fit: contain;">
+</div>
+    <h2 class="modal-title">ยินดีต้อนรับ</h2>
+    <p class="modal-sub">เข้าสู่ระบบเพื่อรับสิทธิพิเศษและติดตามคำสั่งซื้อ</p>
+
+    <div class="tab-switch">
+      <button class="tab-btn active" data-tab="login">เข้าสู่ระบบ</button>
+      <button class="tab-btn" data-tab="register">สมัครสมาชิก</button>
+    </div>
+
+    <!-- Login Form -->
+    <form id="login-form" > 
+      <div class="form-group">
+        <label class="form-label">อีเมล</label>
+        <input name="email" type="email" class="form-input" placeholder="your@email.com" >
+      </div>
+      <div class="form-group">
+        <label class="form-label">รหัสผ่าน</label>
+        <div class="form-input-wrap">
+          <input name="password" type="password" class="form-input" placeholder="รหัสผ่าน" >
+          <button type="button" class="toggle-pw">👁</button>
+        </div>
+      </div>
+      <label class="form-check">
+        <input type="checkbox" checked> จดจำการเข้าสู่ระบบ
+      </label>
+      <button type="submit" class="btn-primary btn-full">เข้าสู่ระบบ</button>
+      <div class="divider-text">หรือ</div>
+      <div class="social-logins">
+        <button type="button" class="social-login-btn">📘 Facebook</button>
+        <button type="button" class="social-login-btn">🔵 Google</button>
+      </div>
+      <p style="text-align:center;margin-top:1rem;font-size:.78rem;color:var(--text-muted)">
+        อีเมล กับ รหัสทอลอง : <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2246474f4d6254434c45574350460c564a">[email&#160;protected]</a> / demo1234
+      </p>
+    </form>
+
+     <!-- Register Form -->
+    <form id="register-form" class="hidden"  >
+      <div class="form-group">
+        <label class="form-label">ชื่อ-นามสกุล</label>
+        <input name="name" type="text" class="form-input" placeholder="ชื่อ นามสกุล">
+      </div>
+      <div class="form-group">
+        <label class="form-label">อีเมล</label>
+        <input name="email" type="email" class="form-input" placeholder="your@email.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label">รหัสผ่าน</label>
+        <div class="form-input-wrap">
+          <input name="password" type="password" class="form-input" placeholder="อย่างน้อย 6 ตัวอักษร">
+          <button type="button" class="toggle-pw">👁</button>
+        </div>
+      </div>
+      <label class="form-check">
+        <input type="checkbox" required> ยอมรับเงื่อนไขการใช้บริการ
+      </label>
+      <button type="submit" class="btn-primary btn-full">สมัครสมาชิกฟรี</button>
+      <div class="divider-text">หรือ</div>
+      <div class="social-logins">
+        <button type="button" class="social-login-btn">📘 Facebook</button>
+        <button type="button" class="social-login-btn">🔵 Google</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

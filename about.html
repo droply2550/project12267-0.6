@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>สมาชิกกลุ่ม — Nexus</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐉</text></svg>">
+  <link rel="stylesheet" href="css/style2.css">
+  <style>
+    
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo">
+    <div class="logo-icon"><img src="images/logo.png" alt="Logo"></div>
+    <div><span class="logo-text"> NEXUS</span><span class="logo-sub">Card Shop</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">🏠 หน้าแรก</a></li>
+    <li><a href="products.html">🎴 สินค้า</a></li>
+    <li><a href="contact.html">📨 ติดต่อ</a></li>
+    <li><a href="about.html" class="active">👥 สมาชิก</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="search-toggle">🔍</button>
+    <a href="cart.html" class="cart-btn">🛒<span class="cart-count" style="display:none">0</span></a>
+    <button class="login-btn">เข้าสู่ระบบ</button>
+    <div class="user-menu-btn" style="display:none" onclick="logout()">
+      <div class="user-avatar">DP</div>
+      <span class="user-name">Player</span>
+    </div>
+    <button class="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-nav">
+  <a href="index.html">🏠 หน้าแรก</a>
+  <a href="products.html">🎴 สินค้าทั้งหมด</a>
+  <a href="cart.html">🛒 ตะกร้าสินค้า</a>
+  <a href="contact.html">📨 ติดต่อเรา</a>
+  <a href="about.html">👥 สมาชิกกลุ่ม</a>
+</div>
+<div class="search-overlay" id="search-overlay">
+  <div class="search-box">
+    <div class="search-input-wrap">
+      <input type="text" class="search-input" id="search-input" placeholder="ค้นหาการ์ด...">
+      <button class="search-clear" id="search-clear">✕</button>
+    </div>
+    <div class="search-hint">กด ESC เพื่อปิด</div>
+    <div class="search-results" id="search-results" style="display:none"></div>
+  </div>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">หน้าแรก</a>
+      <span class="sep">›</span>
+      <span class="current">สมาชิกกลุ่ม</span>
+    </div>
+    <span class="section-label">PROJECT TEAM</span>
+    <h1 class="section-title">สมาชิกกลุ่ม</h1>
+    <p style="color:var(--text-secondary);margin-top:.75rem">ผู้พัฒนาเว็บไซต์ Nexus Card Shop</p>
+  </div>
+</div>
+
+<!-- ABOUT PAGE -->
+<div class="about-page">
+  <div class="container">
+
+    <!-- Course Card -->
+    <div class="course-card animate-up">
+      <div class="course-card-inner">
+        <div class="course-icon">📚</div>
+        <div class="course-info">
+          <div class="course-sup">รายวิชาที่พัฒนา</div>
+          <div class="course-name">การพัฒนาเว็บแอปพลิเคชัน<br>ส่วนติดต่อกับผู้ใช้</div>
+          <span class="course-code">🔖 ICT12267</span>
+          <div class="course-meta">                      
+            <span>🏫 SPU · SIT</span>
+            <span>📅 2025</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Members -->
+    <div class="section-divider animate-up">
+      <div class="section-divider-line"></div>
+      <div class="section-divider-text">สมาชิกในกลุ่ม</div>
+      <div class="section-divider-line"></div>
+    </div>
+
+    <div class="members-grid">
+
+      <!-- Member 1 -->
+      <div class="member-card animate-up">
+        <div class="member-photo-area">
+        
+          <img class="member-photo" src="images/member1.png" alt="นาย พรพิพัฒน์">
+          <div class="photo-hint"></div>
+          <div class="member-photo-fade"></div>
+          <div class="member-num">1</div>
+        </div>
+        <div class="member-body">
+          <div class="member-no">สมาชิกคนที่ 1</div>
+          <div class="member-name">68074788 นาย พรพิพัฒน์ วงษสุวรรณ์</div>
+          <span class="member-role">⭐ Developer</span>
+        </div>
+      </div>
+
+      <!-- Member 2 -->
+      <div class="member-card animate-up">
+        <div class="member-photo-area">
+          
+          <img class="member-photo" src="images/member2.png" alt="นาย สุรภัทร">
+          <div class="photo-hint"></div>
+          <div class="member-photo-fade"></div>
+          <div class="member-num">2</div>
+        </div>
+        <div class="member-body">
+          <div class="member-no">สมาชิกคนที่ 2</div>
+          <div class="member-name">68068075 นาย สุรภัทร จันทร์นาคา</div>
+          <span class="member-role">⭐ Developer</span>
+        </div>
+      </div>
+
+    </div>
+    <!-- /members-grid -->
+
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-bottom">
+      <span>Nexus © 2026 SPU - SIT . All rights reserved.</span>
+      <span>Created by Nexus Group - ICT12267</span>
+    </div>
+  </div>
+</footer>
+
+<div id="toast-container"></div>
+
+<!-- Login Modal -->
+<div class="modal-overlay" id="login-modal">
+  <div class="modal">
+    <button class="modal-close" id="modal-close">✕</button>
+    <div class="logo-icon" style="margin:0 auto .75rem;width:48px;height:48px;display:flex;align-items:center;justify-content:center;">
+      <img src="images/logo.png" alt="Logo" style="width:100%;height:100%;object-fit:contain;">
+    </div>
+    <h2 class="modal-title">ยินดีต้อนรับ</h2>
+    <p class="modal-sub">เข้าสู่ระบบเพื่อรับสิทธิพิเศษและติดตามคำสั่งซื้อ</p>
+    <div class="tab-switch">
+      <button class="tab-btn active" data-tab="login">เข้าสู่ระบบ</button>
+      <button class="tab-btn" data-tab="register">สมัครสมาชิก</button>
+    </div>
+    <form id="login-form">
+      <div class="form-group">
+        <label class="form-label">อีเมล</label>
+        <input name="email" type="email" class="form-input" placeholder="your@email.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label">รหัสผ่าน</label>
+        <div class="form-input-wrap">
+          <input name="password" type="password" class="form-input" placeholder="รหัสผ่าน">
+          <button type="button" class="toggle-pw">👁</button>
+        </div>
+      </div>
+      <label class="form-check"><input type="checkbox" checked> จดจำการเข้าสู่ระบบ</label>
+      <button type="submit" class="btn-primary btn-full">เข้าสู่ระบบ</button>
+      <div class="divider-text">หรือ</div>
+      <div class="social-logins">
+        <button type="button" class="social-login-btn">📘 Facebook</button>
+        <button type="button" class="social-login-btn">🔵 Google</button>
+      </div>
+      <p style="text-align:center;margin-top:1rem;font-size:.78rem;color:var(--text-muted)">
+        ทดลอง: demo@vanguard.th / demo1234
+      </p>
+    </form>
+    <form id="register-form" class="hidden">
+      <div class="form-group">
+        <label class="form-label">ชื่อ-นามสกุล</label>
+        <input name="name" type="text" class="form-input" placeholder="ชื่อ นามสกุล">
+      </div>
+      <div class="form-group">
+        <label class="form-label">อีเมล</label>
+        <input name="email" type="email" class="form-input" placeholder="your@email.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label">รหัสผ่าน</label>
+        <div class="form-input-wrap">
+          <input name="password" type="password" class="form-input" placeholder="อย่างน้อย 6 ตัวอักษร">
+          <button type="button" class="toggle-pw">👁</button>
+        </div>
+      </div>
+      <label class="form-check"><input type="checkbox" required> ยอมรับเงื่อนไขการใช้บริการ</label>
+      <button type="submit" class="btn-primary btn-full">สมัครสมาชิกฟรี</button>
+      <div class="divider-text">หรือ</div>
+      <div class="social-logins">
+        <button type="button" class="social-login-btn">📘 Facebook</button>
+        <button type="button" class="social-login-btn">🔵 Google</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

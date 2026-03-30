@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ตะกร้าสินค้า — Nexus</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐉</text></svg>">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo">
+        <div class="logo-icon">
+    <img src="images/logo.png" alt="Logo"></div>
+    <div><span class="logo-text"> NEXUS</span><span class="logo-sub">Card Shop</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">🏠 หน้าแรก</a></li>
+    <li><a href="products.html">🎴 สินค้า</a></li>
+    <li><a href="contact.html">📨 ติดต่อ</a></li>
+    <li><a href="about.html">👥 สมาชิก</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="search-toggle">🔍</button>
+    <a href="cart.html" class="cart-btn active">🛒<span class="cart-count" style="display:none">0</span></a>
+    <button class="login-btn">เข้าสู่ระบบ</button>
+    <div class="user-menu-btn" style="display:none" onclick="logout()">
+      <div class="user-avatar">DP</div>
+      <span class="user-name">Player</span>
+    </div>
+    <button class="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-nav">
+  <a href="index.html">🏠 หน้าแรก</a>
+  <a href="products.html">🎴 สินค้าทั้งหมด</a>
+  <a href="cart.html">🛒 ตะกร้าสินค้า</a>
+  <a href="contact.html">📨 ติดต่อเรา</a>
+  <a href="about.html">👥 สมาชิกกลุ่ม</a>
+</div>
+<div class="search-overlay" id="search-overlay">
+  <div class="search-box">
+    <div class="search-input-wrap">
+      <input type="text" class="search-input" id="search-input" placeholder="ค้นหาการ์ด...">
+      <button class="search-clear" id="search-clear">✕</button>
+    </div>
+    <div class="search-hint">กด ESC เพื่อปิด</div>
+    <div class="search-results" id="search-results" style="display:none"></div>
+  </div>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">หน้าแรก</a>
+      <span class="sep">›</span>
+      <span class="current">ตะกร้าสินค้า</span>
+    </div>
+    <span class="section-label">YOUR DECK</span>
+    <h1 class="section-title">ตะกร้าสินค้า</h1>
+  </div>
+</div>
+
+<!-- CART PAGE -->
+<div class="cart-page">
+  <div class="container">
+    <div class="cart-layout">
+
+      <!-- CART ITEMS -->
+      <div class="cart-items" id="cart-items-container">
+        <!-- Rendered by JS -->
+      </div>
+
+      <!-- CART SUMMARY -->
+      <div class="cart-summary" id="cart-summary">
+        <div class="summary-title">สรุปคำสั่งซื้อ</div>
+        <div class="summary-rows">
+          <div class="summary-row">
+            <span class="label">ยอดรวมสินค้า</span>
+            <span class="value" id="summary-subtotal">0 ฿</span>
+          </div>
+          <div class="summary-row">
+            <span class="label">ค่าจัดส่ง</span>
+            <span class="value" id="summary-shipping">50 ฿</span>
+          </div>
+          <div class="summary-row" style="font-size:.78rem;color:var(--text-muted)">
+            <span>ส่งฟรีเมื่อครบ 250 ฿</span>
+          </div>
+          <div class="summary-divider"></div>
+          <div class="summary-row summary-total">
+            <span class="label">ยอดรวมทั้งหมด</span>
+            <span class="value" id="summary-total">0 ฿</span>
+          </div>
+        </div>
+
+        <!-- Coupon -->
+        <div class="coupon-input-wrap">
+          <input type="text" class="coupon-input" id="coupon-input" placeholder="โค้ดส่วนลด ( ทดลอง VGNEXUS10 )">
+          <button class="coupon-apply" id="coupon-apply">ใช้โค้ด</button>
+        </div>
+
+        <button class="btn-primary checkout-btn" id="checkout-btn">
+          💳 ดำเนินการชำระเงิน
+        </button>
+
+        <div class="security-badges">
+          <div class="sec-badge">🔒 SSL Secure</div>
+          <div class="sec-badge">✅ ของแท้ 100%</div>
+          <div class="sec-badge">↩️ คืนได้ 7 วัน</div>
+        </div>
+
+        <!-- Accepted Payments -->
+        <div style="margin-top:1rem;text-align:center">
+          <div style="font-size:.72rem;color:var(--text-muted);margin-bottom:.5rem">ช่องทางการชำระเงิน</div>
+          <div style="display:flex;justify-content:center;gap:.5rem;font-size:1.2rem">
+            💳 🏦 📱 💵
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recommended -->
+    <div style="margin-top:4rem" id="recommended-section">
+      <div class="section-header animate-up" style="display:flex;align-items:flex-end;justify-content:space-between">
+        <div>
+          <span class="section-label">อาจสนใจ</span>
+          <h2 class="section-title">การ์ดแนะนำ</h2>
+          <div class="divider"></div>
+        </div>
+        <a href="products.html" class="btn-secondary" style="margin-bottom:.5rem">ดูทั้งหมด →</a>
+      </div>
+      <div class="featured-grid animate-up" id="recommended-grid"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-bottom">
+      <span>Nexus © 2026 SPU - SIT . All rights reserved.</span>
+      <span>Created by Nexus Grorp - ict 12267</span>
+    </div>
+  </div>
+</footer>
+
+<div id="toast-container"></div>
+
+<!-- Login Modal -->
+<div class="modal-overlay" id="login-modal">
+  <div class="modal">
+    <button class="modal-close" id="modal-close">✕</button>
+    <div class="logo-icon" style="margin:0 auto .75rem; width:48px; height:48px; display: flex; align-items: center; justify-content: center;">
+    <img src="images/logo.png" alt="Logo" style="width: 100%; height: 100%; object-fit: contain;">
+</div>
+    <h2 class="modal-title">ยินดีต้อนรับ</h2>
+    <p class="modal-sub">เข้าสู่ระบบเพื่อรับสิทธิพิเศษและติดตามคำสั่งซื้อ</p>
+
+    <div class="tab-switch">
+      <button class="tab-btn active" data-tab="login">เข้าสู่ระบบ</button>
+      <button class="tab-btn" data-tab="register">สมัครสมาชิก</button>
+    </div>
+
+    <!-- Login Form -->
+    <form id="login-form" > 
+      <div class="form-group">
+        <label class="form-label">อีเมล</label>
+        <input name="email" type="email" class="form-input" placeholder="your@email.com" >
+      </div>
+      <div class="form-group">
+        <label class="form-label">รหัสผ่าน</label>
+        <div class="form-input-wrap">
+          <input name="password" type="password" class="form-input" placeholder="รหัสผ่าน" >
+          <button type="button" class="toggle-pw">👁</button>
+        </div>
+      </div>
+      <label class="form-check">
+        <input type="checkbox" checked> จดจำการเข้าสู่ระบบ
+      </label>
+      <button type="submit" class="btn-primary btn-full">เข้าสู่ระบบ</button>
+      <div class="divider-text">หรือ</div>
+      <div class="social-logins">
+        <button type="button" class="social-login-btn">📘 Facebook</button>
+        <button type="button" class="social-login-btn">🔵 Google</button>
+      </div>
+      <p style="text-align:center;margin-top:1rem;font-size:.78rem;color:var(--text-muted)">
+        อีเมล กับ รหัสทอลอง : <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1175747c7e5167707f76647063753f6579">[email&#160;protected]</a> / demo1234
+      </p>
+    </form>
+
+    <!-- Register Form -->
+    <form id="register-form" class="hidden"  >
+      <div class="form-group">
+        <label class="form-label">ชื่อ-นามสกุล</label>
+        <input name="name" type="text" class="form-input" placeholder="ชื่อ นามสกุล">
+      </div>
+      <div class="form-group">
+        <label class="form-label">อีเมล</label>
+        <input name="email" type="email" class="form-input" placeholder="your@email.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label">รหัสผ่าน</label>
+        <div class="form-input-wrap">
+          <input name="password" type="password" class="form-input" placeholder="อย่างน้อย 6 ตัวอักษร">
+          <button type="button" class="toggle-pw">👁</button>
+        </div>
+      </div>
+      <label class="form-check">
+        <input type="checkbox" required> ยอมรับเงื่อนไขการใช้บริการ
+      </label>
+      <button type="submit" class="btn-primary btn-full">สมัครสมาชิกฟรี</button>
+    <div class="divider-text">หรือ</div>
+      <div class="social-logins">
+        <button type="button" class="social-login-btn">📘 Facebook</button>
+        <button type="button" class="social-login-btn">🔵 Google</button>
+      </div>
+    
+    </form>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

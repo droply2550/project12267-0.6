@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>รายละเอียดสินค้า — Nexus</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐉</text></svg>">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo">
+        <div class="logo-icon">
+    <img src="images/logo.png" alt="Logo"></div>
+    <div><span class="logo-text"> NEXUS</span><span class="logo-sub">Card Shop</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">🏠 หน้าแรก</a></li>
+    <li><a href="products.html" class="active">🎴 สินค้า</a></li>
+    <li><a href="contact.html">📨 ติดต่อ</a></li>
+    <li><a href="about.html">👥 สมาชิก</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="search-toggle">🔍</button>
+    <a href="cart.html" class="cart-btn">🛒<span class="cart-count" style="display:none">0</span></a>
+    <button class="login-btn">เข้าสู่ระบบ</button>
+    <div class="user-menu-btn" style="display:none" onclick="logout()">
+      <div class="user-avatar">DP</div>
+      <span class="user-name">Player</span>
+    </div>
+    <button class="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-nav">
+  <a href="index.html">🏠 หน้าแรก</a>
+  <a href="products.html">🎴 สินค้าทั้งหมด</a>
+  <a href="cart.html">🛒 ตะกร้าสินค้า</a>
+  <a href="contact.html">📨 ติดต่อเรา</a>
+  <a href="about.html">👥 สมาชิกกลุ่ม</a>
+</div>
+<div class="search-overlay" id="search-overlay">
+  <div class="search-box">
+    <div class="search-input-wrap">
+      <input type="text" class="search-input" id="search-input" placeholder="ค้นหาการ์ด...">
+      <button class="search-clear" id="search-clear">✕</button>
+    </div>
+    <div class="search-hint">กด ESC เพื่อปิด</div>
+    <div class="search-results" id="search-results" style="display:none"></div>
+  </div>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header" style="padding-bottom:2rem">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">หน้าแรก</a>
+      <span class="sep">›</span>
+      <a href="products.html">สินค้า</a>
+      <span class="sep">›</span>
+      <span class="current" data-detail-name>รายละเอียดสินค้า</span>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCT DETAIL -->
+<div class="product-detail-page">
+  <div class="container">
+    <div class="detail-grid">
+
+      <!-- GALLERY -->
+      <div class="detail-gallery animate-up">
+        <div class="main-image-wrap">
+          <div id="main-img-area" style="width:100%;height:100%">
+            <!-- Filled by JS -->
+          </div>
+          <div class="zoom-hint">🔍 ตัวอย่างการ์ด</div>
+        </div>
+        <div class="thumb-list">
+          <div class="thumb active" style="background:var(--bg-card);display:flex;align-items:center;justify-content:center;font-size:1.5rem" title="มุมมองหน้า">🎴</div>
+          <div class="thumb" style="background:var(--bg-card);display:flex;align-items:center;justify-content:center;font-size:1.5rem" title="มุมมองหลัง">🃏</div>
+          <div class="thumb" style="background:var(--bg-card);display:flex;align-items:center;justify-content:center;font-size:1.5rem" title="ซองใส่การ์ด">✨</div>
+        </div>
+      </div>
+
+      <!-- DETAIL INFO -->
+      <div class="detail-info animate-up">
+        <div class="detail-badges">
+          <span id="detail-rarity-badge" class="card-rarity" style="position:static;border-radius:6px">RRR</span>
+          <span class="tag">D Format</span>
+          <span class="tag">ของแท้ 100%</span>
+        </div>
+
+        <h1 class="detail-name" data-detail-name>—</h1>
+        <div class="detail-series" data-detail-series>—</div>
+
+        <div class="detail-price-wrap">
+          <div class="detail-price" id="detail-price" data-detail-price>—</div>
+          <div class="detail-price-orig" id="detail-orig-price" style="display:none"></div>
+          <div class="detail-save" id="detail-save"></div>
+        </div>
+
+        <!-- Stock Bar -->
+        <div class="detail-stock-bar">
+          <div class="stock-label">
+            <span>สต็อกสินค้า</span>
+            <span id="stock-label">—</span>
+          </div>
+          <div class="stock-bar">
+            <div class="stock-fill" id="stock-fill" style="width:50%"></div>
+          </div>
+        </div>
+
+        <!-- Qty -->
+        <div class="detail-qty">
+          <span class="qty-label">จำนวน</span>
+          <div class="qty-control">
+            <button class="qty-btn" id="qty-minus">−</button>
+            <span class="qty-val" id="detail-qty-val">1</span>
+            <button class="qty-btn" id="qty-plus">+</button>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="detail-actions">
+          <button class="btn-primary" id="detail-add-cart" style="font-size:.9rem">
+            🛒 เพิ่มลงตะกร้า
+          </button>
+          <button class="btn-wishlist" id="detail-wishlist" title="เพิ่มในรายการโปรด">🤍</button>
+        </div>
+
+        <!-- Tags -->
+        <div class="detail-tags" id="detail-tags"></div>
+
+        <!-- Specs Table -->
+        <div class="detail-specs">
+          <div class="spec-row">
+            <span class="spec-key">Nation/Clan</span>
+            <span class="spec-val" data-detail-clan>—</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-key">ความหายาก</span>
+            <span class="spec-val" data-detail-rarity>—</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-key">Grade</span>
+            <span class="spec-val" data-detail-grade>—</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-key">Format</span>
+            <span class="spec-val">D Format (2022+)</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-key">สภาพการ์ด</span>
+            <span class="spec-val">Near Mint (NM)</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-key">บรรจุภัณฑ์</span>
+            <span class="spec-val">Sleeve + Toploader / บรรจุภัณฑ์กล่อง</span>
+          </div>
+        </div>
+
+        <!-- Share -->
+        <div class="share-section">
+          <span class="share-label">แชร์:</span>
+          <button class="social-btn" onclick="navigator.clipboard.writeText(window.location.href); showToast('คัดลอกลิงก์แล้ว!')">🔗</button>
+          <button class="social-btn">📘</button>
+          <button class="social-btn">💬</button>
+        </div>
+
+        <!-- Shipping Info -->
+        <div style="margin-top:1.5rem;padding:1rem;background:var(--bg-card);border:1px solid var(--border-card);border-radius:var(--radius-md);">
+          <div style="display:flex;flex-direction:column;gap:.6rem;font-size:.82rem;color:var(--text-muted)">
+            <div>✅ ของแท้ 100% · รับประกันคุณภาพ</div>
+            <div>📦 จัดส่งทุก วันจันทร์-พฤหัสบดี</div>
+            <div>🚚 ส่งฟรีเมื่อสั่งซื้อครบ 250 บาท</div>
+            <div>↩️ คืนสินค้าภายใน 7 วัน (กรณีผิดปกติ)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Related Products -->
+    <div style="margin-top:5rem">
+      <div class="section-header animate-up">
+        <span class="section-label">สินค้าที่เกี่ยวข้อง</span>
+        <h2 class="section-title">การ์ดคล้ายกัน</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="featured-grid animate-up" id="related-grid"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-bottom">
+      <span>Nexus © 2026 SPU - SIT . All rights reserved.</span>
+      <span>Created by Nexus Grorp - ict 12267</span>
+    </div>
+  </div>
+</footer>
+
+<div id="toast-container"></div>
+
+<!-- Login Modal -->
+<div class="modal-overlay" id="login-modal">
+  <div class="modal">
+    <button class="modal-close" id="modal-close">✕</button>
+    <h2 class="modal-title">เข้าสู่ระบบ</h2>
+    <p class="modal-sub">เพื่อรับสิทธิพิเศษและติดตามคำสั่งซื้อ</p>
+    <div class="tab-switch">
+      <button class="tab-btn active" data-tab="login">เข้าสู่ระบบ</button>
+      <button class="tab-btn" data-tab="register">สมัครสมาชิก</button>
+    </div>
+    <form id="login-form">
+      <div class="form-group"><label class="form-label">อีเมล</label><input name="email" type="email" class="form-input" value="demo@vanguard.th"></div>
+      <div class="form-group"><label class="form-label">รหัสผ่าน</label><div class="form-input-wrap"><input name="password" type="password" class="form-input" value="demo1234"><button type="button" class="toggle-pw">👁</button></div></div>
+      <button type="submit" class="btn-primary btn-full">เข้าสู่ระบบ</button>
+      <p style="text-align:center;margin-top:.75rem;font-size:.78rem;color:var(--text-muted)">Demo: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="244041494b6452454a43514556400a504c">[email&#160;protected]</a> / demo1234</p>
+    </form>
+    <form id="register-form" class="hidden" >
+      <div class="form-group"><label class="form-label">ชื่อ</label><input name="name" type="text" class="form-input"></div>
+      <div class="form-group"><label class="form-label">อีเมล</label><input name="email" type="email" class="form-input"></div>
+      <div class="form-group"><label class="form-label">รหัสผ่าน</label><div class="form-input-wrap"><input name="password" type="password" class="form-input"><button type="button" class="toggle-pw">👁</button></div></div>
+      <label class="form-check"><input type="checkbox" required> ยอมรับเงื่อนไข</label>
+      <button type="submit" class="btn-primary btn-full">สมัครสมาชิก</button>
+    <div class="divider-text">หรือ</div>
+      <div class="social-logins">
+        <button type="button" class="social-login-btn">📘 Facebook</button>
+        <button type="button" class="social-login-btn">🔵 Google</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/main.js"></script>
+<script>
+// Show original price only if exists
+document.addEventListener("DOMContentLoaded", () => {
+  const params = new URLSearchParams(window.location.search);
+  const id = parseInt(params.get("id")) || 1;
+  // handled by main.js initProductDetailPage

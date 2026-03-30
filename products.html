@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>สินค้าทั้งหมด — Nexus</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐉</text></svg>">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo">
+        <div class="logo-icon">
+    <img src="images/logo.png" alt="Logo"></div>
+    <div><span class="logo-text"> NEXUS</span><span class="logo-sub">Card Shop</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">🏠 หน้าแรก</a></li>
+    <li><a href="products.html" class="active">🎴 สินค้า</a></li>
+    <li><a href="contact.html">📨 ติดต่อ</a></li>
+    <li><a href="about.html">👥 สมาชิก</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="search-toggle" title="ค้นหา">🔍</button>
+    <a href="cart.html" class="cart-btn">🛒<span class="cart-count" style="display:none">0</span></a>
+    <button class="login-btn">เข้าสู่ระบบ</button>
+    <div class="user-menu-btn" style="display:none" onclick="logout()">
+      <div class="user-avatar">DP</div>
+      <span class="user-name">Player</span>
+    </div>
+    <button class="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-nav">
+  <a href="index.html">🏠 หน้าแรก</a>
+  <a href="products.html">🎴 สินค้าทั้งหมด</a>
+  <a href="cart.html">🛒 ตะกร้าสินค้า</a>
+  <a href="contact.html">📨 ติดต่อเรา</a>
+  <a href="about.html">👥 สมาชิกกลุ่ม</a>
+</div>
+<div class="search-overlay" id="search-overlay">
+  <div class="search-box">
+    <div class="search-input-wrap">
+      <input type="text" class="search-input" id="search-input" placeholder="ค้นหาการ์ด...">
+      <button class="search-clear" id="search-clear">✕</button>
+    </div>
+    <div class="search-hint">กด ESC เพื่อปิด</div>
+    <div class="search-results" id="search-results" style="display:none"></div>
+  </div>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">หน้าแรก</a>
+      <span class="sep">›</span>
+      <span class="current">สินค้าทั้งหมด</span>
+    </div>
+    <span class="section-label">D FORMAT SINGLE CARDS</span>
+    <h1 class="section-title">การ์ดทั้งหมด</h1>
+    <p style="color:var(--text-secondary);margin-top:.75rem">เลือกการ์ดที่ใช่สำหรับ Deck ของคุณ</p>
+  </div>
+</div>
+
+<!-- PRODUCTS PAGE -->
+<div class="products-page">
+  <div class="container">
+    <div class="products-layout">
+
+      <!-- FILTER SIDEBAR -->
+      <aside class="filter-sidebar">
+        <div class="filter-title">
+          ตัวกรอง
+          <button class="filter-clear" id="filter-clear">รีเซ็ต</button>
+        </div>
+
+        <!-- Search in sidebar -->
+        <div class="filter-group">
+          <input type="text" id="filter-search" class="form-input" placeholder="🔍 ค้นหาชื่อการ์ด...">
+        </div>
+
+        <!-- Rarity -->
+        <div class="filter-group">
+          <div class="filter-group-title">ความหายาก</div>
+          <div class="filter-options">
+            <label class="filter-option">
+              <input type="checkbox" data-filter-rarity value="RRR"> 
+              <span class="card-rarity rarity-rrr" style="position:static;border-radius:4px">RRR</span>
+              Vanguard Rare <span class="count">6</span>
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" data-filter-rarity value="RR">
+              <span class="card-rarity rarity-rr" style="position:static;border-radius:4px">RR</span>
+              Double Rare <span class="count">1</span>
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" data-filter-rarity value="SP">
+              <span class="card-rarity rarity-sp" style="position:static;border-radius:4px">SP</span>
+              Special Rare <span class="count">1</span>
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" data-filter-rarity value="R">
+              <span class="card-rarity rarity-r" style="position:static;border-radius:4px">R</span>
+              Rare <span class="count">1</span>
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" data-filter-rarity value="BT">
+              <span class="card-rarity rarity-bt" style="position:static;border-radius:4px">BT</span>
+              Booster <span class="count">3</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Clan -->
+        <div class="filter-group">
+          <div class="filter-group-title">Nation / D-BT</div>
+          <div class="filter-options">
+           
+            <label class="filter-option"><input type="checkbox" data-filter-clan value="Keter Sanctuary">Keter Sanctuary<span class="count">2</span></label>
+            <label class="filter-option"><input type="checkbox" data-filter-clan value="Dark States">Dark States<span class="count">1</span></label>
+            <label class="filter-option"><input type="checkbox" data-filter-clan value="Lyrical Monasterio">Lyrical Monasterio <span class="count">1</span></label>
+            <label class="filter-option"><input type="checkbox" data-filter-clan value="Stoicheia">Stoicheia<span class="count">1</span></label>
+            <label class="filter-option"><input type="checkbox" data-filter-clan value="Brandt Gate">Brandt Gate<span class="count">1</span></label>
+            <label class="filter-option"><input type="checkbox" data-filter-clan value="Dragon Empire">Dragon Empire<span class="count">3</span></label>
+          </div>
+        </div>
+
+        <!-- Price Range -->
+        <div class="filter-group">
+          <div class="filter-group-title">ช่วงราคา</div>
+          <div class="price-range">
+            <div id="price-display" style="color:var(--accent-gold);font-weight:700;font-family:var(--font-display)">9,999 ฿</div>
+            <input type="range" id="price-range-slider" min="50" max="3000" value="3000" step="50">
+            <div class="price-inputs">
+              <input type="number" class="price-input" placeholder="ต่ำสุด" value="0" readonly>
+              <input type="number" class="price-input" id="price-max" placeholder="สูงสุด" value="9999" readonly>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- PRODUCTS MAIN -->
+      <div class="products-main">
+        <div class="products-toolbar">
+          <div class="products-count" id="products-count">แสดง <span>0</span> รายการ</div>
+          <div class="toolbar-right">
+            <select class="sort-select" id="sort-select">
+              <option value="default">เรียงค่าเริ่มต้น</option>
+              <option value="price-asc">ราคา: ต่ำ → สูง</option>
+              <option value="price-desc">ราคา: สูง → ต่ำ</option>
+              <option value="name">ชื่อ A-Z</option>
+              <option value="new">สินค้าใหม่</option>
+            </select>
+            <div class="view-toggle">
+              <button class="view-btn active" data-view="grid" title="Grid View">⊞</button>
+              <button class="view-btn" data-view="list" title="List View">≡</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="products-grid" id="products-grid">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+        <div class="logo-icon">
+    <img src="images/logo.png" alt="Logo"></div>
+    <div><span class="logo-text"> NEXUS</span><span class="logo-sub">Card Shop</span></div>
+  </a>
+        <p class="footer-desc">ร้านขายการ์ดแวนการ์ด D Format เฉพาะทาง ของแท้ 100%</p>
+      </div>
+      <div class="footer-col"><h4>เมนูหลัก</h4><ul>
+        <li><a href="index.html">หน้าแรก</a></li>
+        <li><a href="products.html">สินค้าทั้งหมด</a></li>
+        <li><a href="cart.html">ตะกร้าสินค้า</a></li>
+        <li><a href="contact.html">ติดต่อเรา</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>ติดต่อ</h4><ul>
+        <li><a href="#">LINE: @vanguardnexus</a></li>
+        <li><a href="#">IG: @vgnexus.th</a></li>
+        <li><a href="#">FB: VanguardNexusTH</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>บริการ</h4><ul>
+        <li><a href="#">นโยบายคืนสินค้า</a></li>
+        <li><a href="#">ติดตามพัสดุ</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>Nexus © 2026 SPU - SIT . All rights reserved.</span>
+      <span>Created by Nexus Grorp - ict 12267</span>
+    </div>
+  </div>
+</footer>
+
+<div id="toast-container"></div>
+
+<!-- Login Modal -->
+<div class="modal-overlay" id="login-modal">
+  <div class="modal">
+    <button class="modal-close" id="modal-close">✕</button>
+    <div class="logo-icon" style="margin:0 auto .75rem; width:48px; height:48px; display: flex; align-items: center; justify-content: center;">
+    <img src="images/logo.png" alt="Logo" style="width: 100%; height: 100%; object-fit: contain;">
+</div>
+    <h2 class="modal-title">ยินดีต้อนรับ</h2>
+    <p class="modal-sub">เข้าสู่ระบบเพื่อรับสิทธิพิเศษและติดตามคำสั่งซื้อ</p>
+
+    <div class="tab-switch">
+      <button class="tab-btn active" data-tab="login">เข้าสู่ระบบ</button>
+      <button class="tab-btn" data-tab="register">สมัครสมาชิก</button>
+    </div>
+
+    <!-- Login Form -->
+    <form id="login-form" > 
+      <div class="form-group">
+        <label class="form-label">อีเมล</label>
+        <input name="email" type="email" class="form-input" placeholder="your@email.com" >
+      </div>
+      <div class="form-group">
+        <label class="form-label">รหัสผ่าน</label>
+        <div class="form-input-wrap">
+          <input name="password" type="password" class="form-input" placeholder="รหัสผ่าน" >
+          <button type="button" class="toggle-pw">👁</button>
+        </div>
+      </div>
+      <label class="form-check">
+        <input type="checkbox" checked> จดจำการเข้าสู่ระบบ
+      </label>
+      <button type="submit" class="btn-primary btn-full">เข้าสู่ระบบ</button>
+      <div class="divider-text">หรือ</div>
+      <div class="social-logins">
+        <button type="button" class="social-login-btn">📘 Facebook</button>
+        <button type="button" class="social-login-btn">🔵 Google</button>
+      </div>
+      <p style="text-align:center;margin-top:1rem;font-size:.78rem;color:var(--text-muted)">
+        อีเมล กับ รหัสทอลอง : <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a1c5c4cccee1d7c0cfc6d4c0d3c58fd5c9">[email&#160;protected]</a> / demo1234
+      </p>
+    </form>
+
+    <!-- Register Form -->
+    <form id="register-form" class="hidden"  >
+      <div class="form-group">
+        <label class="form-label">ชื่อ-นามสกุล</label>
+        <input name="name" type="text" class="form-input" placeholder="ชื่อ นามสกุล">
+      </div>
+      <div class="form-group">
+        <label class="form-label">อีเมล</label>
+        <input name="email" type="email" class="form-input" placeholder="your@email.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label">รหัสผ่าน</label>
+        <div class="form-input-wrap">
+          <input name="password" type="password" class="form-input" placeholder="อย่างน้อย 6 ตัวอักษร">
+          <button type="button" class="toggle-pw">👁</button>
+        </div>
+      </div>
+      <label class="form-check">
+        <input type="checkbox" required> ยอมรับเงื่อนไขการใช้บริการ
+      </label>
+      <button type="submit" class="btn-primary btn-full">สมัครสมาชิกฟรี</button>
+    <div class="divider-text">หรือ</div>
+      <div class="social-logins">
+         <button type="button" class="social-login-btn">📘 Facebook</button>
+        <button type="button" class="social-login-btn">🔵 Google</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
